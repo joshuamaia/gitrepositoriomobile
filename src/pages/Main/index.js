@@ -59,6 +59,14 @@ export default class Main extends Component {
     Keyboard.dismiss();
   };
 
+  handleDeleteUser = user => {
+    const { users } = this.state;
+
+    this.setState({
+      users: users.filter(u => u !== user),
+    });
+  };
+
   render() {
     const { users, newUser, loading } = this.state;
 
@@ -90,6 +98,9 @@ export default class Main extends Component {
               <Avatar source={{ uri: item.avatar }} />
               <Name>{item.name}</Name>
               <Bio>{item.bio}</Bio>
+              <ProfileButton onPress={() => this.handleDeleteUser(item)}>
+                <ProfileButtonText>Remover</ProfileButtonText>
+              </ProfileButton>
               <ProfileButton>
                 <ProfileButtonText>Ver Perfil</ProfileButtonText>
               </ProfileButton>
