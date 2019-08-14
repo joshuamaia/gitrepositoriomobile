@@ -16,6 +16,7 @@ import {
   Bio,
   ProfileButton,
   ProfileButtonText,
+  ContainerProfileButton,
 } from './styles';
 
 export default class Main extends Component {
@@ -115,12 +116,17 @@ export default class Main extends Component {
               <Avatar source={{ uri: item.avatar }} />
               <Name>{item.name}</Name>
               <Bio>{item.bio}</Bio>
-              <ProfileButton onPress={() => this.handleDeleteUser(item)}>
-                <ProfileButtonText>Remover</ProfileButtonText>
-              </ProfileButton>
-              <ProfileButton onPress={() => this.handleNavigate(item)}>
-                <ProfileButtonText>Ver Perfil</ProfileButtonText>
-              </ProfileButton>
+              <ContainerProfileButton>
+                <ProfileButton
+                  remove
+                  onPress={() => this.handleDeleteUser(item)}
+                >
+                  <ProfileButtonText>Remover</ProfileButtonText>
+                </ProfileButton>
+                <ProfileButton onPress={() => this.handleNavigate(item)}>
+                  <ProfileButtonText>Ver Perfil</ProfileButtonText>
+                </ProfileButton>
+              </ContainerProfileButton>
             </User>
           )}
         />

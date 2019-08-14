@@ -6,6 +6,13 @@ export const Container = styled.View`
   padding: 30px;
 `;
 
+export const ContainerProfileButton = styled.View`
+  flex: 1;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 export const Form = styled.View`
   flex-direction: row;
   padding-bottom: 20px;
@@ -72,9 +79,12 @@ export const Bio = styled.Text.attrs({
 
 export const ProfileButton = styled(RectButton)`
   margin-top: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 130px;
   align-self: stretch;
   border-radius: 4px;
-  background: #7159c1;
+  background: ${props => (props.remove ? '#ff0000' : '#7159c1')};
   justify-content: center;
   align-items: center;
   height: 36px;
